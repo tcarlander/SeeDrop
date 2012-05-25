@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MyCLController.h"
+#import <CoreData/CoreData.h>
+#import <MapKit/MapKit.h>
 #import "AppDelegate.h"
 
 int main(int argc, char *argv[])

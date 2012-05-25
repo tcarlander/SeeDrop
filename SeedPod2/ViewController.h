@@ -7,7 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import "MyCLController.h"
+#import "KMLParser.h"
 
-@interface ViewController : UIViewController
+
+@interface ViewController : UIViewController <MyCLControllerDelegate, ZBarReaderDelegate >
+{
+    UITextView *resultText;
+    MyCLController *locationController;
+    NSString *mapType;
+    KMLParser *kmlParser;
+    NSString *scannedText;
+    
+}
+
+@property (nonatomic, retain) IBOutlet UITextView *resultText;
+@property (nonatomic, retain) IBOutlet MKMapView *TheMap;
+@property (nonatomic,retain) IBOutlet NSString *mapType;
+@property (nonatomic,retain) NSString *scannedText;
+- (IBAction) openScanner;
+- (void) scanButtonTapped;
+- (void)locationUpdate:(CLLocation *)location;
+- (void)locationError:(NSError *)error;
 
 @end
