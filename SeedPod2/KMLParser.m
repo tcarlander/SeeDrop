@@ -73,13 +73,13 @@
 // called to reset the character data accumulator.
 
 @interface KMLElement : NSObject {
-    NSString *identifier;
+    NSString *__weak identifier;
     NSMutableString *accum;
 }
 
 - (id)initWithIdentifier:(NSString *)ident;
 
-@property (nonatomic, readonly) NSString *identifier;
+@property (weak, nonatomic, readonly) NSString *identifier;
 
 // Returns YES if we're currently parsing an element that has character
 // data contents that we are interested in saving.

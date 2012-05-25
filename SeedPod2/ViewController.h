@@ -22,10 +22,10 @@
     
 }
 
-@property (nonatomic, retain) IBOutlet UITextView *resultText;
-@property (nonatomic, retain) IBOutlet MKMapView *TheMap;
-@property (nonatomic,retain) IBOutlet NSString *mapType;
-@property (nonatomic,retain) NSString *scannedText;
+@property (nonatomic) IBOutlet UITextView *resultText;
+@property (nonatomic) IBOutlet MKMapView *TheMap;
+@property (nonatomic) IBOutlet NSString *mapType;
+@property (nonatomic) NSString *scannedText;
 - (IBAction) openScanner;
 - (void) scanButtonTapped;
 - (void)locationUpdate:(CLLocation *)location;
