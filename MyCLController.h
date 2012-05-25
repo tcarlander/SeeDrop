@@ -21,7 +21,7 @@
     id delegate;
 }
 
-@property (nonatomic) CLLocationManager *locationManager;
+@property (nonatomic,strong) CLLocationManager *locationManager;
 @property (unsafe_unretained) id  delegate;
 @property (nonatomic) BOOL running;
 
