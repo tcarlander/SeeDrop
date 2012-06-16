@@ -16,6 +16,9 @@
 		F62BD64B1566C6BA00EA6FCF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F62BD64A1566C6BA00EA6FCF /* Default@2x.png */; };
 		F62BD64E1566C6C000EA6FCF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F62BD64D1566C6C000EA6FCF /* Default.png */; };
 		F647B568158CDEAA000180AD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F647B566158CDEAA000180AD /* Model.xcdatamodeld */; };
+		F647B56B158CF28D000180AD /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = F647B56A158CF28D000180AD /* Comment.m */; };
+		F647B56E158CF28D000180AD /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = F647B56D158CF28D000180AD /* Event.m */; };
+		F647B571158CF28E000180AD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F647B570158CF28E000180AD /* User.m */; };
 		F65101C3156D7C7D0099D3D0 /* Events.kml in Resources */ = {isa = PBXBuildFile; fileRef = F65101C2156D7C7D0099D3D0 /* Events.kml */; };
 		F66D6217156BF1BB00F6AF05 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F66D6216156BF1BB00F6AF05 /* MapKit.framework */; };
 		F66D6220156BF5C300F6AF05 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F66D621F156BF5C300F6AF05 /* CoreLocation.framework */; };
@@ -98,6 +101,12 @@
 		F62BD64A1566C6BA00EA6FCF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		F62BD64D1566C6C000EA6FCF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		F647B567158CDEAA000180AD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		F647B569158CF28D000180AD /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		F647B56A158CF28D000180AD /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		F647B56C158CF28D000180AD /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		F647B56D158CF28D000180AD /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		F647B56F158CF28E000180AD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		F647B570158CF28E000180AD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		F65101C2156D7C7D0099D3D0 /* Events.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Events.kml; sourceTree = "<group>"; };
 		F66D6216156BF1BB00F6AF05 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F66D621C156BF25D00F6AF05 /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCLController.h; path = ../MyCLController.h; sourceTree = "<group>"; };
@@ -225,6 +234,12 @@
 			isa = PBXGroup;
 			children = (
 				F6E24B03156ACB5B00C52EFE /* ZBarSDK */,
+				F647B56F158CF28E000180AD /* User.h */,
+				F647B570158CF28E000180AD /* User.m */,
+				F647B56C158CF28D000180AD /* Event.h */,
+				F647B56D158CF28D000180AD /* Event.m */,
+				F647B569158CF28D000180AD /* Comment.h */,
+				F647B56A158CF28D000180AD /* Comment.m */,
 				F6B8CD95156546BC008EF000 /* 640x960 */,
 				F6B8CCA81562E342008EF000 /* SeeDrop */,
 				F6B8CCA11562E342008EF000 /* Frameworks */,
@@ -593,6 +608,9 @@
 				F66D6229156C0A4B00F6AF05 /* KMLParser.m in Sources */,
 				F6AD6879158BE52A00ED8688 /* MapLeaf.m in Sources */,
 				F647B568158CDEAA000180AD /* Model.xcdatamodeld in Sources */,
+				F647B56B158CF28D000180AD /* Comment.m in Sources */,
+				F647B56E158CF28D000180AD /* Event.m in Sources */,
+				F647B571158CF28E000180AD /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
