@@ -15,6 +15,7 @@
 		F60CACB11573FFB700B99D61 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F60CACB01573FFB700B99D61 /* Icon.png */; };
 		F62BD64B1566C6BA00EA6FCF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F62BD64A1566C6BA00EA6FCF /* Default@2x.png */; };
 		F62BD64E1566C6C000EA6FCF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F62BD64D1566C6C000EA6FCF /* Default.png */; };
+		F647B568158CDEAA000180AD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F647B566158CDEAA000180AD /* Model.xcdatamodeld */; };
 		F65101C3156D7C7D0099D3D0 /* Events.kml in Resources */ = {isa = PBXBuildFile; fileRef = F65101C2156D7C7D0099D3D0 /* Events.kml */; };
 		F66D6217156BF1BB00F6AF05 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F66D6216156BF1BB00F6AF05 /* MapKit.framework */; };
 		F66D6220156BF5C300F6AF05 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F66D621F156BF5C300F6AF05 /* CoreLocation.framework */; };
@@ -96,6 +97,7 @@
 		F60CACB01573FFB700B99D61 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
 		F62BD64A1566C6BA00EA6FCF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		F62BD64D1566C6C000EA6FCF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		F647B567158CDEAA000180AD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		F65101C2156D7C7D0099D3D0 /* Events.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Events.kml; sourceTree = "<group>"; };
 		F66D6216156BF1BB00F6AF05 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F66D621C156BF25D00F6AF05 /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCLController.h; path = ../MyCLController.h; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				F6B8CCA91562E342008EF000 /* Supporting Files */,
 				F6AD6877158BE52A00ED8688 /* MapLeaf.h */,
 				F6AD6878158BE52A00ED8688 /* MapLeaf.m */,
+				F647B566158CDEAA000180AD /* Model.xcdatamodeld */,
 			);
 			name = SeeDrop;
 			path = SeedPod2;
@@ -589,6 +592,7 @@
 				F6B8CCBC1562E342008EF000 /* ViewController.m in Sources */,
 				F66D6229156C0A4B00F6AF05 /* KMLParser.m in Sources */,
 				F6AD6879158BE52A00ED8688 /* MapLeaf.m in Sources */,
+				F647B568158CDEAA000180AD /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,6 +748,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F647B566158CDEAA000180AD /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F647B567158CDEAA000180AD /* Model.xcdatamodel */,
+			);
+			currentVersion = F647B567158CDEAA000180AD /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F6B8CC951562E342008EF000 /* Project object */;
 }
