@@ -58,7 +58,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-587" y="-1759"/>
+            <point key="canvasLocation" x="-1037" y="-1607"/>
         </scene>
         <!--View Controller - Events-->
         <scene sceneID="Yb6-3p-gtV">
@@ -148,11 +148,11 @@
                                     <segue destination="6YO-2S-YKJ" kind="push" identifier="Report" id="6Dw-h1-vlr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GgO-I3-aYF">
-                                <rect key="frame" x="102" y="313" width="119" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GgO-I3-aYF" userLabel="Purpose">
+                                <rect key="frame" x="106" y="310" width="119" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="27"/>
-                                <state key="normal" title="Porpose">
+                                <state key="normal" title="Propose">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -168,7 +168,7 @@
                     </navigationItem>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-88" y="-1631"/>
+            <point key="canvasLocation" x="-563" y="-1607"/>
         </scene>
         <!--TheMap-->
         <scene sceneID="87i-gc-bPN">
@@ -194,7 +194,33 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="572" y="-1921"/>
+            <point key="canvasLocation" x="-8" y="-1607"/>
+        </scene>
+        <!--View Controller - DetailsView-->
+        <scene sceneID="gJJ-28-Duf">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cFs-cx-c76" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController title="DetailsView" id="lIa-Sb-QV2" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WLr-fk-Kzo">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2Hc-tJ-kEV">
+                                <rect key="frame" x="112" y="158" width="97" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fnY-Dw-29k"/>
+                    <connections>
+                        <outlet property="Details" destination="2Hc-tJ-kEV" id="aLK-ca-cl9"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="556" y="-1785"/>
         </scene>
         <!--TheMapEvents-->
         <scene sceneID="LFg-UV-N7S">
@@ -217,10 +243,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="TheMap" destination="xlF-8E-S3Q" id="ORq-wb-lmw"/>
+                        <segue destination="lIa-Sb-QV2" kind="push" identifier="DetailsSegue" id="Zpw-GS-dSF"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="572" y="-1354"/>
+            <point key="canvasLocation" x="56" y="-2316"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fxS-ZX-KwP">
@@ -257,9 +284,57 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="nmi-Nt-jGu"/>
+                    <connections>
+                        <segue destination="ga9-Vp-UOl" kind="push" identifier="RegisterAccount" id="xqT-wo-5rJ"/>
+                    </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-760" y="-1227"/>
+            <point key="canvasLocation" x="-1524" y="-1607"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="93v-it-N4V">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A6R-re-twn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="ga9-Vp-UOl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="62u-xn-ELZ">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="BG2.png" id="hSi-CA-xoE">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" id="GVC-Dh-jkZ">
+                                <rect key="frame" x="14" y="123" width="292" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" id="dyb-Zl-9Tg">
+                                <rect key="frame" x="14" y="192" width="292" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" id="L2V-iS-pyh">
+                                <rect key="frame" x="14" y="249" width="292" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" id="4IL-PE-H7O">
+                                <rect key="frame" x="14" y="311" width="292" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fzl-lQ-ydr"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-1194" y="-776"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="MZl-BG-rqP">
@@ -271,10 +346,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Rfi-13-cxp">
-                                <rect key="frame" x="0.0" y="-5" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="-5" width="320" height="421"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -287,7 +361,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="51" y="-154"/>
+            <point key="canvasLocation" x="-563" y="-2192"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yl7-IN-vWh">
@@ -307,25 +381,15 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-1098" y="-1726"/>
+            <point key="canvasLocation" x="-2020" y="-1607"/>
         </scene>
     </scenes>
     <resources>
         <image name="BG1.png" width="640" height="960"/>
+        <image name="BG2.png" width="640" height="960"/>
         <image name="BG4 .png" width="640" height="960"/>
         <image name="BG5_1.png" width="640" height="960"/>
     </resources>
-    <classes>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="openScanner"/>
-                <relationship kind="outlet" name="TheMap" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="mapType" candidateClass="NSString"/>
-                <relationship kind="outlet" name="resultText" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

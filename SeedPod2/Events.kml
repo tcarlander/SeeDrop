@@ -11,6 +11,16 @@
 			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
 		</IconStyle>
 	</Style>
+    <Style id="globeIcon">
+        <IconStyle>
+            <Icon>
+                <href>http://maps.google.com/mapfiles/kml/pal3/icon19.png</href>
+            </Icon>
+        </IconStyle>
+        <LineStyle>
+            <width>2</width>
+        </LineStyle>
+    </Style>
 	<Style id="s_ylw-pushpin_hl">
 		<IconStyle>
 			<scale>1.3</scale>
@@ -44,7 +54,7 @@
 				<range>4398.376011157682</range>
 				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
 			</LookAt>
-			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<styleUrl>#globeIcon</styleUrl>
 			<Point>
 				<coordinates>12.48618749343738,41.89357818648027,0</coordinates>
 			</Point>
@@ -67,6 +77,7 @@
 		</Placemark>
 		<Placemark>
 			<name>Event 3</name>
+            <description>Totoq</description>
 			<open>1</open>
 			<LookAt>
 				<longitude>12.49073640142415</longitude>

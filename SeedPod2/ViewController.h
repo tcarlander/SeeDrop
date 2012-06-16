@@ -12,11 +12,11 @@
 #import "KMLParser.h"
 
 
-@interface ViewController : UIViewController <MyCLControllerDelegate, ZBarReaderDelegate >
+@interface ViewController : UIViewController <MyCLControllerDelegate, ZBarReaderDelegate,MKMapViewDelegate >
 {
     UITextView *resultText;
     MyCLController *locationController;
-    NSString *mapType;
+    NSString *whatMap;
     KMLParser *kmlParser;
     NSString *scannedText;
     
@@ -24,9 +24,10 @@
 
 @property (nonatomic) IBOutlet UITextView *resultText;
 @property (nonatomic) IBOutlet MKMapView *TheMap;
-@property (nonatomic) IBOutlet NSString *mapType;
+@property (nonatomic) IBOutlet NSString *whatMap;
 @property (nonatomic) NSString *scannedText;
 - (IBAction) openScanner;
+@property (weak, nonatomic) IBOutlet UITextField *Details;
 - (void) scanButtonTapped;
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;

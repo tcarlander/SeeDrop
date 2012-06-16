@@ -16,13 +16,11 @@
 			<array>
 				<string>Default@2x.png</string>
 				<string>Default.png</string>
-				<string>Seme.png</string>
-				<string>Seme@2x.png</string>
+				<string>Icon.png</string>
+				<string>Icon@2x.png</string>
 				<string>Seme-72.png</string>
 				<string>Seme-72@2x.png</string>
 			</array>
-			<key>UIPrerenderedIcon</key>
-			<true/>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
@@ -45,8 +43,6 @@
 	<string>MainStoryboard_iPhone</string>
 	<key>UIMainStoryboardFile~ipad</key>
 	<string>MainStoryboard_iPad</string>
-	<key>UIPrerenderedIcon</key>
-	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
