@@ -11,6 +11,7 @@
         <attribute name="fillStatus" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="comment" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Comment" inverseName="event" inverseEntity="Comment" syncable="YES"/>
@@ -27,7 +28,7 @@
     </entity>
     <fetchRequest name="getAllEvents" entity="Event"/>
     <elements>
-        <element name="Event" positionX="-72" positionY="-45" width="128" height="180"/>
+        <element name="Event" positionX="-72" positionY="-45" width="128" height="195"/>
         <element name="User" positionX="-333" positionY="-9" width="128" height="150"/>
         <element name="Comment" positionX="-234" positionY="396" width="128" height="90"/>
     </elements>

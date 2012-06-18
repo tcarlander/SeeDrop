@@ -13,9 +13,15 @@
 @end
 
 @implementation ViewController
-@synthesize Details;
-
-@synthesize  resultText,TheMap, whatMap,scannedText;
+@synthesize eventDetail;
+@synthesize eventDescription;
+@synthesize eventTitle;
+@synthesize firstName;
+@synthesize lastName;
+@synthesize levelWaterLable;
+@synthesize numberSeedsLable;
+@synthesize eventComment;
+@synthesize  resultText,TheMap, whatMap,scannedText,newEventCoord,numberOfSeeds,numberOfWater,defaults;
 
 
 -(NSString *)mapType
@@ -29,6 +35,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    defaults = [NSUserDefaults standardUserDefaults];
+    // load seeds & water
+    numberOfSeeds = [defaults integerForKey:@"numberSeeds"];
+    numberOfWater= [defaults integerForKey:@"numberWater"];
+    levelWaterLable.text = [[NSString alloc]initWithFormat:@"%d", numberOfWater];
+    numberSeedsLable.text = [[NSString alloc]initWithFormat:@"%d", numberOfSeeds];
     
     if ([[self whatMap]  isEqualToString:@""]){
         self.navigationController.navigationBarHidden = YES;
@@ -39,26 +51,83 @@
         [self scanButtonTapped];
     } 
     if ([self TheMap]){
-        TheMap.mapType = MKMapTypeHybrid;
+        //TheMap.mapType = MKMapTypeHybrid;
         TheMap.delegate = self;
-        if ([[self whatMap]  isEqualToString:@"Report"]){
-            locationController = [[MyCLController alloc] init];
-            locationController.delegate = self;
-            locationController.running = TRUE;
-            [locationController.locationManager startUpdatingLocation];
-
-            [TheMap setShowsUserLocation:YES];
+        if (([[self whatMap]  isEqualToString:@"WorldlyCreate"]) || ( [[self whatMap]  isEqualToString:@"CulturalCreate"]) || ( [[self whatMap]  isEqualToString:@"CulinaryCreate"]) || ( [[self whatMap]  isEqualToString:@"MacroCreate"])){
+            [self showReportMap];
         } else {
                 [self loadOverlayForMap];
         }
     }
+    eventComment.delegate = self;
+    eventDetail.delegate = self;
+    eventDescription.delegate = self;
+    eventTitle.delegate = self;
     
     //self.mapType = @"";
 }
 
+-(void)viewDidAppear{
+    
+    numberOfSeeds = [defaults integerForKey:@"numberSeeds"];
+    numberOfWater= [defaults integerForKey:@"numberWater"];
+    levelWaterLable.text = [[NSString alloc]initWithFormat:@"%d", numberOfWater];
+    numberSeedsLable.text = [[NSString alloc]initWithFormat:@"%d", numberOfSeeds];
+    
+    
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    
+    numberOfSeeds = [defaults integerForKey:@"numberSeeds"];
+    numberOfWater= [defaults integerForKey:@"numberWater"];
+    levelWaterLable.text = [[NSString alloc]initWithFormat:@"%d", numberOfWater];
+    numberSeedsLable.text = [[NSString alloc]initWithFormat:@"%d", numberOfSeeds];
+    
+}
+-(void)showReportMap{
+    
+    locationController = [[MyCLController alloc] init];
+    locationController.delegate = self;
+    locationController.running = TRUE;
+    [locationController.locationManager startUpdatingLocation];
+    //[TheMap setShowsUserLocation:YES];
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] 
+                                          initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 2.0; //user needs to press for 2 seconds
+    [self.TheMap addGestureRecognizer:lpgr];
+    NSLog(@"Init Map");
+}
+
+- (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer
+{
+    if (gestureRecognizer.state != UIGestureRecognizerStateBegan) return;
+    NSLog(@"Flip Map");
+    CGPoint touchPoint = [gestureRecognizer locationInView:self.TheMap];
+    NSLog(@"Here:%f",touchPoint.x);
+    CLLocationCoordinate2D touchMapCoordinate = [self.TheMap convertPoint:touchPoint toCoordinateFromView:self.TheMap];
+    NSLog(@"Here:%f,%f",touchMapCoordinate.latitude,touchMapCoordinate.longitude);
+    newEventCoord = touchMapCoordinate;
+    
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = touchMapCoordinate;
+    point.title = @"New Event";
+    point.subtitle = @"this is a fun event";
+    [TheMap addAnnotation:point];
+    [self performSegueWithIdentifier: @"MakeEvent" 
+                              sender: self];
+}
+
 - (void)viewDidUnload
 {
-    [self setDetails:nil];
+    [self setFirstName:nil];
+    [self setLastName:nil];
+    [self setLevelWaterLable:nil];
+    [self setNumberSeedsLable:nil];
+    [self setEventComment:nil];
+    [self setEventDetail:nil];
+    [self setEventDescription:nil];
+    [self setEventTitle:nil];
     [super viewDidUnload];
     
 }
@@ -138,6 +207,8 @@
     NSLog(@"PFS %@",[segue identifier]);
     ViewController *vc = [segue destinationViewController];
     vc.whatMap = [segue identifier];
+    vc.newEventCoord = self.newEventCoord;
+    
     
 }
 
@@ -152,12 +223,22 @@
     [info objectForKey: ZBarReaderControllerResults];
     ZBarSymbol *symbol = nil;
     for(symbol in results)
-        // EXAMPLE: just grab the first barcode
         break;
     
-    // EXAMPLE: do something useful with the barcode data
+    NSLog(@"Code Read");
     resultText.text = symbol.data;
-    
+    if([resultText.text isEqualToString:@"Recharge!!"]){
+        NSLog(@"Recharged");
+        // Save new Water & Seed
+        numberOfSeeds +=1;
+        numberOfWater +=1;
+        [defaults setObject:[[NSNumber alloc]initWithInt:numberOfSeeds] forKey:@"numberSeeds"];
+        [defaults setObject:[[NSNumber alloc]initWithInt:numberOfWater] forKey:@"numberWater"];
+        [defaults synchronize];
+        [reader dismissModalViewControllerAnimated: YES];
+        [[self navigationController]popViewControllerAnimated:NO];
+        
+    }
     
     // ADD: dismiss the controller (NB dismiss from the *reader*!)
     [reader dismissModalViewControllerAnimated: YES];
@@ -166,8 +247,28 @@
 
 - (IBAction) openScanner
 {
+    NSLog(@"Open Scanner");
 [self performSegueWithIdentifier: @"ReadBC" 
                           sender: self];
+
+}
+
+- (IBAction)viewProfile:(id *)sender {
+
+}
+
+- (IBAction)saveNewEvent:(id)sender {
+    CLLocationCoordinate2D coord = self.newEventCoord;
+    NSLog(@"%f", coord.latitude);
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = coord;
+    point.title = @"New Event";
+    point.subtitle = @"this is a fun event";
+    // Save new Water & Seed
+    numberOfSeeds -=1;
+    [defaults setObject:[[NSNumber alloc]initWithInt:numberOfSeeds] forKey:@"numberSeeds"];
+    [defaults synchronize];
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void) scanButtonTapped
@@ -179,6 +280,7 @@
     [scanner setSymbology: ZBAR_I25
                    config: ZBAR_CFG_ENABLE
                        to: 0];
+    
     [self presentModalViewController: reader
                             animated: YES];
 
@@ -225,9 +327,7 @@
         MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation
                                                                          reuseIdentifier:SFAnnotationIdentifier];
 
-        if ([whatMap  isEqualToString:@"Macro"]){
-            eventPin = [UIImage imageNamed:@"macroLeaf.png"];            
-        }else if ([whatMap  isEqualToString:@"Culinary"]){
+        if ([whatMap  isEqualToString:@"Macro"]){            eventPin = [UIImage imageNamed:@"macroLeaf.png"];   }else if ([whatMap  isEqualToString:@"Culinary"]){
             eventPin = [UIImage imageNamed:@"culinaryLeaf.png"];
             }else
                 if ([whatMap  isEqualToString:@"Cultural"]){
@@ -235,12 +335,15 @@
                 }else
                     if ([whatMap  isEqualToString:@"Worldly"]){
                         eventPin = [UIImage imageNamed:@"worldlyLeafSmall.png"];
+                    }else {
+                        eventPin = [UIImage imageNamed:@"worldlyLeafSmall.png"]; 
                     }
         // You may need to resize the image here.
         UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         [rightButton addTarget:self
                         action:@selector(showDetails:)
-              forControlEvents:UIControlEventTouchUpInside];
+              forControlEvents:UIControlEventTouchUpInside 
+         ];
         annotationView.rightCalloutAccessoryView = rightButton;
 
         annotationView.canShowCallout = YES;
@@ -257,7 +360,7 @@
 }
 - (void)showDetails:(id)sender
 {
-    // the detail view does not want a toolbar so hide it
+    NSLog(@"showDetail on %@",self);
    
 }
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
@@ -267,7 +370,35 @@
     whatMap = annotation.subtitle;
     [self performSegueWithIdentifier: @"DetailsSegue" 
                               sender: self];
-    NSLog(@"MapView %@",whatMap);
+    NSLog(@"MapView %@",view);
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {  
+    BOOL shouldChangeText = YES;  
+    
+    if ([text isEqualToString:@"\n"]) {  
+        // Find the next entry field  
+        [textView resignFirstResponder];
+        shouldChangeText = NO;  
+    }  
+    return shouldChangeText; 
+}
+
+
+- (IBAction)dismissScanner:(id)sender {
+    [sender dismissModalViewControllerAnimated: YES];
+
+}
+
+- (IBAction)reduseWater:(id)sender {
+    numberOfWater -=1;
+    [defaults setObject:[[NSNumber alloc]initWithInt:numberOfSeeds] forKey:@"numberWater"];
+    [defaults synchronize];
+
+    
+}
 @end

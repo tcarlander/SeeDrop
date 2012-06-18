@@ -62,8 +62,8 @@
 		<Placemark>
 			<name>Event 2</name>
 			<LookAt>
-				<longitude>12.49073640142415</longitude>
-				<latitude>41.88961921449879</latitude>
+				<longitude>12.4907</longitude>
+				<latitude>41.8899</latitude>
 				<altitude>0</altitude>
 				<heading>0.03517362731504414</heading>
 				<tilt>0</tilt>
@@ -76,11 +76,11 @@
 			</Point>
 		</Placemark>
 		<Placemark>
-			<name>Event 3</name>
-            <description>Totoq</description>
+			<name>Apperitivo</name>
+            <description>di AlesandroSwez</description>
 			<open>1</open>
 			<LookAt>
-				<longitude>12.49073640142415</longitude>
+				<longitude>12.4917</longitude>
 				<latitude>41.88961921449879</latitude>
 				<altitude>0</altitude>
 				<heading>0.03517362731504414</heading>

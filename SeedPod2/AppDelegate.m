@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  SeedPod2
+//  SeeDrop
 //
 //  Created by Tobias Carlander on 5/15/12.
 //  Copyright (c) 2012 WFP. All rights reserved.
@@ -15,6 +15,24 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    // read an inizialize vars
+    NSNumber *ten = [[NSNumber alloc]initWithInt:10];
+    
+    if (![defaults objectForKey:@"numberSeeds"]) {
+        [defaults setObject:ten forKey:@"numberSeeds"];
+        [defaults setObject:ten forKey:@"numberWater"];
+        [defaults synchronize];
+    }else{
+        
+    }
+    
+    int numberSeeds = [defaults integerForKey:@"numberSeeds"];
+    int numberWater = [defaults integerForKey:@"numberWater"];
+
+    NSLog(@"S:%d W:%d",numberSeeds,numberWater);
+    
+
     return YES;
 }
 							
@@ -46,7 +64,7 @@
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
-    return NO;
+    return YES;
 }
 
 @end
