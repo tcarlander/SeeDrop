@@ -232,8 +232,8 @@
         // Save new Water & Seed
         numberOfSeeds +=1;
         numberOfWater +=1;
-        [defaults setObject:[[NSNumber alloc]initWithInt:numberOfSeeds] forKey:@"numberSeeds"];
-        [defaults setObject:[[NSNumber alloc]initWithInt:numberOfWater] forKey:@"numberWater"];
+        [defaults setObject:@(numberOfSeeds) forKey:@"numberSeeds"];
+        [defaults setObject:@(numberOfWater) forKey:@"numberWater"];
         [defaults synchronize];
         [reader dismissModalViewControllerAnimated: YES];
         [[self navigationController]popViewControllerAnimated:NO];
@@ -266,7 +266,7 @@
     point.subtitle = @"this is a fun event";
     // Save new Water & Seed
     numberOfSeeds -=1;
-    [defaults setObject:[[NSNumber alloc]initWithInt:numberOfSeeds] forKey:@"numberSeeds"];
+    [defaults setObject:@(numberOfSeeds) forKey:@"numberSeeds"];
     [defaults synchronize];
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -396,7 +396,7 @@
 
 - (IBAction)reduseWater:(id)sender {
     numberOfWater -=1;
-    [defaults setObject:[[NSNumber alloc]initWithInt:numberOfSeeds] forKey:@"numberWater"];
+    [defaults setObject:@(numberOfSeeds) forKey:@"numberWater"];
     [defaults synchronize];
 
     

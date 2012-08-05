@@ -17,7 +17,7 @@
     // Override point for customization after application launch.
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     // read an inizialize vars
-    NSNumber *ten = [[NSNumber alloc]initWithInt:10];
+    NSNumber *ten = @10;
     
     if (![defaults objectForKey:@"numberSeeds"]) {
         [defaults setObject:ten forKey:@"numberSeeds"];
